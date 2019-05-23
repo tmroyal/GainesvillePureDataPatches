@@ -1,0 +1,34 @@
+#N canvas 410 63 608 516 10;
+#X obj 177 86 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 902 315 450 300 loadPlaySoundMono 0;
+#X obj 303 209 table soundfile\$0;
+#X obj 44 20 inlet;
+#X obj 229 20 inlet;
+#X obj 229 85 openpanel;
+#X obj 228 138 pack s \$0;
+#X obj 228 210 soundfiler;
+#X obj 229 54 route bang;
+#X obj 45 90 tabplay~ soundfile\$0;
+#X obj 45 175 outlet~;
+#X msg 226 174 read -resize \$1 soundfile\$2;
+#X connect 1 0 7 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 9 0;
+#X connect 6 0 3 0;
+#X connect 6 1 4 0;
+#X connect 7 0 8 0;
+#X connect 9 0 5 0;
+#X restore 59 132 pd loadPlaySoundMono;
+#X text 206 100 you may also send a path to read directly;
+#X text 206 113 accpets wav and aif;
+#X obj 59 84 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 63 192 dac~;
+#X text 55 63 bang to play sound;
+#X text 207 85 bang to load file dialog;
+#X connect 0 0 1 1;
+#X connect 1 0 5 0;
+#X connect 1 0 5 1;
+#X connect 4 0 1 0;
