@@ -1,0 +1,85 @@
+#N canvas 182 23 904 641 10;
+#X obj 81 443 dac~;
+#X obj 85 415 lop~ 9000;
+#X floatatom 113 346 5 0 0 0 - - -;
+#X obj 115 368 clip 0 1;
+#X msg 113 320 0;
+#X obj 83 138 phasor~ 220;
+#X obj 105 294 loadbang;
+#X obj 83 391 *~ 0;
+#N canvas 25 23 450 278 (subpatch) 0;
+#X array triangle 512 float 3;
+#A 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1;
+#X coords 0 1 512 -1 200 140 1;
+#X restore 396 62 graph;
+#X obj 340 536 tabwrite triangle;
+#X obj 389 252 until;
+#X obj 389 303 + 1;
+#X obj 497 358 select 0;
+#X obj 341 344 t f f;
+#X obj 389 274 f 0;
+#X obj 76 254 tabread4~ triangle;
+#X obj 425 332 % 512;
+#X obj 84 227 *~ 512;
+#X obj 389 223 loadbang;
+#X text 439 249 loop through wavetable indices;
+#X obj 339 241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 511 454 calculate square wave with an expression;
+#X msg 152 319 0.1;
+#X obj 339 455 expr if($f1 > $f2 \, 1 \, -1);
+#X obj 340 423 pack 0 256;
+#X floatatom 571 311 5 0 0 0 - - -;
+#X obj 572 392 clip 0 1;
+#X obj 480 416 * 512;
+#X obj 571 337 t b f;
+#X msg 571 280 0.5;
+#X text 615 308 comment;
+#X connect 1 0 0 0;
+#X connect 1 0 0 1;
+#X connect 2 0 3 0;
+#X connect 3 0 7 1;
+#X connect 4 0 2 0;
+#X connect 5 0 17 0;
+#X connect 6 0 4 0;
+#X connect 7 0 1 0;
+#X connect 10 0 14 0;
+#X connect 11 0 16 0;
+#X connect 12 0 10 1;
+#X connect 13 0 24 0;
+#X connect 13 1 9 1;
+#X connect 14 0 11 0;
+#X connect 14 0 13 0;
+#X connect 15 0 7 0;
+#X connect 16 0 12 0;
+#X connect 16 0 14 1;
+#X connect 17 0 15 0;
+#X connect 18 0 10 0;
+#X connect 18 0 29 0;
+#X connect 20 0 10 0;
+#X connect 22 0 2 0;
+#X connect 23 0 9 0;
+#X connect 24 0 23 0;
+#X connect 25 0 28 0;
+#X connect 26 0 27 0;
+#X connect 27 0 24 1;
+#X connect 28 0 20 0;
+#X connect 28 1 26 0;
+#X connect 29 0 25 0;
