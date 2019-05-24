@@ -181,7 +181,7 @@
 #X connect 4 0 1 1;
 #X connect 4 0 0 1;
 #X restore 155 456 pd ap~;
-#N canvas 0 22 450 300 ap~ 0;
+#N canvas 25 23 450 300 ap~ 0;
 #X obj 127 160 rpole~;
 #X obj 127 135 rzero_rev~;
 #X obj 127 92 inlet~;
@@ -245,6 +245,7 @@
 #X obj 474 172 inlet;
 #X obj 458 209 clip 0 1;
 #X obj 227 32 inlet;
+#X obj 121 322 hip~ 5;
 #X connect 0 0 10 0;
 #X connect 1 0 0 0;
 #X connect 1 0 2 0;
@@ -255,12 +256,13 @@
 #X connect 7 0 0 1;
 #X connect 8 0 6 1;
 #X connect 9 0 7 1;
-#X connect 10 0 2 0;
+#X connect 10 0 16 0;
 #X connect 11 0 10 1;
 #X connect 12 0 11 0;
 #X connect 13 0 14 0;
 #X connect 14 0 12 0;
 #X connect 15 0 3 0;
+#X connect 16 0 2 0;
 #X restore 51 296 pd phasor;
 #N canvas 681 309 450 300 placeholder 0;
 #X obj 248 146 line~;

@@ -1,5 +1,5 @@
 #N canvas 505 336 589 477 10;
-#N canvas 691 202 450 300 tremolo 1;
+#N canvas 691 202 450 300 tremolo 0;
 #X obj 72 26 inlet~;
 #X obj 51 263 outlet~;
 #X obj 127 96 osc~ 1;

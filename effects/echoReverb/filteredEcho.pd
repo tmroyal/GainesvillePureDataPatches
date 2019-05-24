@@ -1,11 +1,11 @@
-#N canvas 264 311 511 437 10;
+#N canvas 900 346 511 437 10;
 #X obj 75 208 dac~;
 #X floatatom 95 102 5 0 0 0 - - -;
 #X floatatom 125 148 5 0 0 0 - - -;
 #X obj 86 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 174 52 use any sound you want;
-#N canvas 25 23 450 300 placeholder 1;
+#N canvas 25 23 450 300 placeholder 0;
 #X obj 98 169 outlet~;
 #X obj 173 26 inlet;
 #X obj 92 100 osc~ 1000;
@@ -26,7 +26,7 @@
 #N canvas 541 317 572 432 filteredecho 1;
 #X obj 47 178 delread4~ del\$0 500;
 #X obj 53 91 delwrite~ del\$0 2000;
-#X obj 45 240 outlet~;
+#X obj 56 291 outlet~;
 #X obj 193 225 *~;
 #X obj 229 120 clip 0 1;
 #X msg 231 151 \$1 50;
@@ -40,8 +40,9 @@
 #X obj 185 264 clip~ -1 1;
 #X obj 181 302 lop~ 1000;
 #X obj 427 21 inlet;
-#X connect 0 0 2 0;
+#X obj 50 247 hip~ 5;
 #X connect 0 0 3 0;
+#X connect 0 0 16 0;
 #X connect 3 0 13 0;
 #X connect 4 0 5 0;
 #X connect 5 0 6 0;
@@ -55,6 +56,7 @@
 #X connect 13 0 14 0;
 #X connect 14 0 1 0;
 #X connect 15 0 14 1;
+#X connect 16 0 2 0;
 #X restore 76 180 pd filteredecho;
 #X text 127 99 feedback amount (0-1);
 #X text 166 141 echo time (ms);
