@@ -1,0 +1,54 @@
+#N canvas 118 169 936 600 10;
+#X obj 463 152 print bang;
+#X obj 463 119 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 486 114 click me and then look at pd window;
+#X obj 64 157 vsl 15 128 50 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3973 1;
+#X text 60 46 GCCC - Pure data basics;
+#X obj 137 156 hsl 128 15 100 1000 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 1675 1;
+#X floatatom 64 300 5 0 0 0 - - -;
+#X floatatom 134 181 5 0 0 0 - - -;
+#X text 56 113 Sliders are found in "Put" Menu Right click to edit
+properties;
+#X floatatom 471 386 5 0 1 0 - - -;
+#X obj 458 214 sin;
+#X floatatom 468 422 5 0 1 0 - - -;
+#X text 464 338 Number boxes are found in put menu. Click drag to change
+value. Shift click drag to change value slowly.;
+#X obj 59 493 dac~;
+#X obj 59 383 osc~ 440;
+#X obj 137 380 osc~ 440;
+#X obj 62 441 *~;
+#X obj 140 443 *~;
+#X text 144 328 ~ indicates a "signal rate" object. The outlet of these
+types of objects produce audio.;
+#X floatatom 458 187 5 0 0 0 - - -;
+#X text 105 492 two channel audio output. Go to pd window to turn on
+dsp. (alternately ctl-. and ctl-/ are turn dsp off and on. (cmd on
+mac));
+#X text 167 444 *~ scales the volume of audio by multiplying the amplitude
+of the signal;
+#X text 230 48 Menu Edit->Edit mode (or cmd e) allows you to edit this
+patch;
+#X text 496 210 sin \, short for sine. The lack of a tilde (~) means
+it is a "control rate" object. These generally send data to control
+sounds \, but don't produce souonds themselves.;
+#X text 171 179 sending value to inlet of number boxes sets value \,
+then outputs said value. These are control rate objects.;
+#X obj 458 250 print sin;
+#X text 532 153 prints value to pd Window;
+#X connect 1 0 0 0;
+#X connect 3 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 14 0;
+#X connect 7 0 15 0;
+#X connect 9 0 16 1;
+#X connect 10 0 25 0;
+#X connect 11 0 17 1;
+#X connect 14 0 16 0;
+#X connect 15 0 17 0;
+#X connect 16 0 13 0;
+#X connect 17 0 13 1;
+#X connect 19 0 10 0;

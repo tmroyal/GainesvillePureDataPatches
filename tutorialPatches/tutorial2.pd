@@ -1,0 +1,167 @@
+#N canvas 455 44 808 808 10;
+#X msg 190 330 \$1 50;
+#X floatatom 187 293 5 0 1 0 - - -;
+#X floatatom 643 270 5 200 2000 0 - - -;
+#X obj 694 324 print 2000ms;
+#X msg 643 296 \$1 2000;
+#X obj 191 390 line~;
+#X obj 74 414 *~;
+#X text 185 262 slide me up and down (with shift);
+#X obj 70 342 osc~ 440;
+#X obj 81 363 osc~ 550;
+#X obj 72 540 dac~;
+#X msg 106 457 0.1;
+#X msg 145 457 0;
+#X obj 219 562 snapshot~;
+#X floatatom 219 599 5 0 0 0 - - -;
+#X obj 221 526 metro 10;
+#X obj 220 500 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 248 498 toggle sends 0 or 1;
+#X text 289 526 outlets a bang every 10ms when 1 is input stops when
+0 is input;
+#X text 285 562 takes a snapshot of the signal whenever a bang is received
+;
+#X obj 240 358 print line~;
+#X obj 645 394 osc~ 200;
+#X obj 643 324 line~;
+#X obj 647 487 dac~;
+#X obj 646 446 *~ 0;
+#X obj 70 487 *~ 0;
+#X msg 667 419 0.1;
+#X msg 706 419 0;
+#X obj 775 430 snapshot~;
+#X floatatom 775 467 5 0 0 0 - - -;
+#X obj 777 394 metro 10;
+#X obj 776 368 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 804 366 toggle sends 0 or 1;
+#X text 231 392 <---- THE STAR!: generates a smooth ramp based on input
+values;
+#X text 695 294 big values on the right makes slow ramps;
+#X text 242 325 generate line to input value in 50 ms;
+#X text 111 234 using line to smooth amplitude values;
+#X text 674 220 using line to make smooth pitch values;
+#X obj 1340 462 vline~;
+#X obj 1341 591 dac~;
+#X obj 1339 498 osc~ 300;
+#X obj 1408 520 vline~;
+#X msg 1338 341 200 0 \, 1000 1000 0 \, 500 500 1000 \, 6000 200 1500
+;
+#X obj 1337 273 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1339 545 *~;
+#X msg 1409 477 0 0 \, 0.8 1000 0 \, 0.01 500 1000 \, 0.2 100 1500
+\, 0 100 1600;
+#X text 1335 234 using vline to make very complicated envelopes;
+#X text 982 229 using vline to make segmented envelopes;
+#X text 39 23 GCCC Tutorial 2: Message boxes and Envelopes;
+#X obj 1072 462 vline~;
+#X obj 987 520 *~;
+#X obj 968 469 osc~ 400;
+#X obj 983 564 dac~;
+#X msg 1015 422 0 0 \, 0.5 2000 0 \, 0 2000 2000;
+#X obj 1156 565 snapshot~;
+#X floatatom 1156 602 5 0 0 0 - - -;
+#X obj 1158 529 metro 10;
+#X obj 1157 503 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 970 604 pow~ 2;
+#X obj 1479 622 snapshot~;
+#X floatatom 1479 659 5 0 0 0 - - -;
+#X obj 1481 586 metro 10;
+#X obj 1480 560 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 1588 617 snapshot~;
+#X floatatom 1588 654 5 0 0 0 - - -;
+#X obj 1590 581 metro 10;
+#X obj 1589 555 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 1413 596 vsl 15 128 200 6000 0 0 empty empty empty 0 -9 0 10
+-262144 -1 -1 12700 1;
+#X obj 1549 594 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X text 962 304 multiple lists separated by commas first sets initial
+value and amount of time in ms to get there. Next are the subsequent
+values and the amount of time to get there followed by a delay. Usually
+\, the last value in each list is the sum of the last two values in
+the previous list.;
+#X msg 72 94 0;
+#X text 106 93 messages hold values;
+#X obj 72 185 print theMessage;
+#X floatatom 53 64 5 0 0 0 - - -;
+#X obj 97 55 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 103 131 when they are clicked on \, banged \, or receive in
+input \, the value in the message is sent;
+#X msg 376 96 1 2 jello bang;
+#X text 374 68 messages can hold multiple values;
+#X obj 619 158 print messageInput;
+#X floatatom 615 84 5 0 0 0 - - -;
+#X msg 618 120 police academy \$1;
+#X text 736 109 when \$1 is in a message box \, incoming numbers replace
+\$1;
+#X obj 1683 194 line;
+#X obj 9 211 line;
+#X connect 0 0 5 0;
+#X connect 0 0 20 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X connect 4 0 22 0;
+#X connect 5 0 6 1;
+#X connect 5 0 13 0;
+#X connect 6 0 25 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;
+#X connect 11 0 25 1;
+#X connect 12 0 25 1;
+#X connect 13 0 14 0;
+#X connect 15 0 13 0;
+#X connect 16 0 15 0;
+#X connect 21 0 24 0;
+#X connect 22 0 21 0;
+#X connect 22 0 28 0;
+#X connect 24 0 23 0;
+#X connect 24 0 23 1;
+#X connect 25 0 10 0;
+#X connect 25 0 10 1;
+#X connect 26 0 24 1;
+#X connect 27 0 24 1;
+#X connect 28 0 29 0;
+#X connect 30 0 28 0;
+#X connect 31 0 30 0;
+#X connect 38 0 40 0;
+#X connect 38 0 59 0;
+#X connect 40 0 44 0;
+#X connect 41 0 44 1;
+#X connect 41 0 63 0;
+#X connect 42 0 38 0;
+#X connect 43 0 42 0;
+#X connect 43 0 45 0;
+#X connect 44 0 39 0;
+#X connect 44 0 39 1;
+#X connect 45 0 41 0;
+#X connect 49 0 54 0;
+#X connect 49 0 50 1;
+#X connect 50 0 52 0;
+#X connect 50 0 52 1;
+#X connect 51 0 50 0;
+#X connect 53 0 49 0;
+#X connect 54 0 55 0;
+#X connect 56 0 54 0;
+#X connect 57 0 56 0;
+#X connect 59 0 60 0;
+#X connect 59 0 67 0;
+#X connect 61 0 59 0;
+#X connect 62 0 61 0;
+#X connect 63 0 64 0;
+#X connect 63 0 68 0;
+#X connect 65 0 63 0;
+#X connect 66 0 65 0;
+#X connect 70 0 72 0;
+#X connect 73 0 70 0;
+#X connect 74 0 70 0;
+#X connect 79 0 80 0;
+#X connect 80 0 78 0;
+#X connect 82 0 83 0;
