@@ -1,0 +1,14 @@
+#N canvas 492 209 520 538 10;
+#X obj 94 244 pack 0 0 0;
+#X obj 91 386 dac~;
+#X obj 93 168 notein;
+#X obj 91 295 clone voice 32;
+#X obj 94 217 poly 31;
+#X connect 0 0 3 0;
+#X connect 2 0 4 0;
+#X connect 2 1 4 1;
+#X connect 3 0 1 0;
+#X connect 3 0 1 1;
+#X connect 4 0 0 0;
+#X connect 4 1 0 1;
+#X connect 4 2 0 2;
